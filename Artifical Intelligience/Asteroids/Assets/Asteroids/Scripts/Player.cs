@@ -32,6 +32,10 @@ namespace Asteroids
                 rigid.rotation -= rotationSpeed * Time.deltaTime;
             }
         }
+        private void OnTriggerEnter(Collider other)
+        {
+            
+        }
     }
 
 }
