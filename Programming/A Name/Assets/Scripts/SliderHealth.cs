@@ -24,5 +24,19 @@ namespace SliderHealth
 		{
 			healthBar.value = Mathf.Clamp01(curHealth / maxHealth);
 		}	
+		public void HealthManager()
+		{
+			if (curHealth <= 0 && sliderFill.enabled)
+			{
+				Debug.Log("Dead");
+				sliderFill.enabled = false;
+			}
+			else if (!sliderFill.enabled && curHealth > 0)
+			{
+				Debug.Log("Revived");
+				sliderFill.enabled = true;
+			}
+		}
+
 	}
 }
