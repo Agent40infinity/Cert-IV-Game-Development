@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 416466076}
   - component: {fileID: 416466075}
   - component: {fileID: 416466081}
+  - component: {fileID: 416466082}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -635,6 +636,21 @@ MonoBehaviour:
   minY: -60
   maxY: 60
   rotationY: 0
+--- !u!114 &416466082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 416466074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8adb615101ec6834d8874d3271123797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  curHealth: 0
+  healthBar: {fileID: 863819540}
+  sliderFill: {fileID: 584792457}
 --- !u!1 &486513109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,7 +1373,6 @@ GameObject:
   m_Component:
   - component: {fileID: 863819539}
   - component: {fileID: 863819540}
-  - component: {fileID: 863819541}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1433,17 +1448,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &863819541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 863819538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8adb615101ec6834d8874d3271123797, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &876436595
 Prefab:
   m_ObjectHideFlags: 0
