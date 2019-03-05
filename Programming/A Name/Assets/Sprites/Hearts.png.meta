@@ -4,6 +4,7 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: Hearts_0
     21300002: Hearts_1
+    21300004: Hearts_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -33,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -100,13 +101,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88e5ac6c1f71a3641ae9ded78d336761
+      spriteID: 368e22e0327d7db4f82fe447d4ff8359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Hearts_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 602861bea5768b843a4fd4232fed96cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts_2
       rect:
         serializedVersion: 2
         x: 0
@@ -120,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30630b8da102e114aab4030cfd9fdafb
+      spriteID: e1bd146a2a772d845b34018dbf5593bb
       vertices: []
       indices: 
       edges: []

@@ -15,8 +15,8 @@ public class Movement : MonoBehaviour
     //we will use this to apply movement in worldspace
     private CharacterController _charC; //(https://docs.unity3d.com/ScriptReference/CharacterController.html)
     [Header("Character Variables")]
-    public float jumpSpeed;
-    public float speed, gravity;
+    public float jumpSpeed = 8;
+    public float speed = 10, gravity = 20;
     #endregion
     #region Start
     private void Start()
