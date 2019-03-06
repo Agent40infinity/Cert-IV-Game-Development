@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-
+[RequireComponent(typeof(Rigidbody))]
+public class Player : MonoBehaviour
+{
+    public float movementSpeed = 20f;
+    public Rigidbody rigid;
+	void Start ()
+    {
+        rigid = GetComponent<Rigidbody>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        float inputX = Input.GetAxis("Horizontal");
+        float inputZ = Input.GetAxis("Vertical");
+        Vector3 input = new Vector3(inputX, 0, inputZ);
+        rigid.velocity = input * -movementSpeed;
 	}
 }

@@ -71,13 +71,13 @@ namespace Tileset
         }
         public void Generation() //Generates the array upon scene switch.
         {
-            for (int y = 0; y < tileHeight; y++) //Checks the  Y position and value within the array to set it's content.
+            for (int y = 0; y < tileset_Layer1.Length; y++) //Checks the  Y position and value within the array to set it's content.
             {
-                for (int x = 0; x < tileWidth; x++) //Checks the  X position and value within the array to set it's content.
+                for (int x = 0; x < tileset_Layer1.Length; x++) //Checks the  X position and value within the array to set it's content.
                 {
                     if (tileset_Layer1[y,x] == 0)
                     {
-                        Instantiate(tile_32, new Vector3 (x*32 , y*32, 0), transform.rotation);
+                        Instantiate(tile_32, new Vector3 (x*32 + 32, y*32 + 32, 0), transform.rotation);
                     }
                     if (tileset_Layer1[y,x] == 1)
                     {
