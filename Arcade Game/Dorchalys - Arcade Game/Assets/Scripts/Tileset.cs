@@ -10,17 +10,17 @@ namespace Tileset
         public GameObject tile_32;
         public int tileWidth = 20; //Sets the max value for tile Width;
         public int tileHeight = 15; //Sets the max value for tile Height;
-        public int[,] tileset_Layer1 = //Top tilset layer for world initialization.
+        public int[,] tileset_Layer1 =  //Top tileset layer for world initialization.
             {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -28,7 +28,7 @@ namespace Tileset
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             };
-        public int[,] tileset_Layer2 = //Middle tilset layer for world initialization.
+        public int[,] tileset_Layer2 = //Middle tileset layer for world initialization.
             {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -71,17 +71,19 @@ namespace Tileset
         }
         public void Generation() //Generates the array upon scene switch.
         {
-            for (int y = 0; y < tileset_Layer1.Length; y++) //Checks the  Y position and value within the array to set it's content.
+            
+            for (int y = 0; y < tileHeight; y++) //Checks the  Y position and value within the array to set it's content.
             {
-                for (int x = 0; x < tileset_Layer1.Length; x++) //Checks the  X position and value within the array to set it's content.
+                for (int x = 0; x < tileWidth; x++) //Checks the  X position and value within the array to set it's content.
                 {
+                    //Ignore Me ------->       print("tileWidth = " +tileWidth+ " Position("+x+ "," + y +") = " + tileset_Layer1[y, x]);
                     if (tileset_Layer1[y,x] == 0)
                     {
                         Instantiate(tile_32, new Vector3 (x*32 + 32, y*32 + 32, 0), transform.rotation);
                     }
                     if (tileset_Layer1[y,x] == 1)
                     {
-                        Instantiate(tile_32, new Vector3 (x * 32, y * 32, 0), transform.rotation);
+                        Instantiate(tile_32, new Vector3 (x*32 + 32, y * 32 + 32, 0), transform.rotation);
                     }
                     if (tileset_Layer1[y,x] == 2)
                     {
@@ -91,7 +93,7 @@ namespace Tileset
                     {
                         
                     }
-                    if (tileset_Layer1[y,x] == 4)
+                    if (tileset_Layer1[y,y] == 4)
                     {
                         
                     }
