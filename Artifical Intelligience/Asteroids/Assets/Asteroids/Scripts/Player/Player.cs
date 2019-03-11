@@ -13,7 +13,11 @@ namespace Asteroids
         {
             rigid = GetComponent<Rigidbody2D>();
         }
-        void Update()
+        private void Update()
+        {
+            Control();
+        }
+        void Control()
         {
             if (Input.GetKey(KeyCode.W))
             {
