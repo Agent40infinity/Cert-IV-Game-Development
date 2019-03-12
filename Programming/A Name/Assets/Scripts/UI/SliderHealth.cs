@@ -9,8 +9,8 @@ namespace SliderHealth
 	public class SliderHealth : MonoBehaviour 
 	{
 		[Header("Player Health")]
-		public int maxHealth = 100;
-		public int curHealth;
+		public float maxHealth = 100;
+		public float curHealth;
 
 		[Header("UI Reference")]
 		public Slider healthBar;
@@ -23,7 +23,9 @@ namespace SliderHealth
 		public void Update () 
 		{
 			healthBar.value = Mathf.Clamp01(curHealth / maxHealth);
-		}	
+            HealthManager();
+
+        }	
 		public void HealthManager()
 		{
 			if (curHealth <= 0 && sliderFill.enabled)

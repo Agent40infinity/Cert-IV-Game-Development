@@ -8,4 +8,16 @@ public class PlayerManager : MonoBehaviour
     public new string name;
     public float health;
 
+    public void SavePlayer()
+    {
+        Save.SavePlayerData(this);
+    }
+    public void LoadPlayer()
+    {
+        DataToSave data = Save.LoadPlayerData();
+        level = data.level;
+        name = data.playerName;
+        health = data.health;
+
+    }
 }

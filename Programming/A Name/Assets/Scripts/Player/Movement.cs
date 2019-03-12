@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
             //moveDir is equal to a new vector3 that is affected by Input.Get Axis.. Horizontal, 0, Vertical
             moveDirection = transform.TransformDirection(moveDirection);
             //moveDir is transformed in the direction of our moveDir
-            if (Input.GetButtonDown("Shift") == true)
+            if (Input.GetButton("Shift"))
             {
                 moveDirection *= sprintSpeed;
             }
