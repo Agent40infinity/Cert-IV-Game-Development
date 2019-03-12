@@ -16,7 +16,9 @@ public class Movement : MonoBehaviour
     private CharacterController _charC; //(https://docs.unity3d.com/ScriptReference/CharacterController.html)
     [Header("Character Variables")]
     public float jumpSpeed = 8;
-    public float speed = 10, gravity = 20;
+    public float speed = 5;
+    public float sprintSpeed = 10;
+    public float gravity = 20;
     #endregion
     #region Start
     private void Start()
@@ -35,7 +37,14 @@ public class Movement : MonoBehaviour
             //moveDir is equal to a new vector3 that is affected by Input.Get Axis.. Horizontal, 0, Vertical
             moveDirection = transform.TransformDirection(moveDirection);
             //moveDir is transformed in the direction of our moveDir
-            moveDirection *= speed;
+            if (Input.GetButtonDown("Shift") == true)
+            {
+                moveDirection *= sprintSpeed;
+            }
+            else
+            {
+                moveDirection *= speed;
+            }
             //our moveDir is then multiplied by our speed
             //Input Manager(https://docs.unity3d.com/Manual/class-InputManager.html)
             //Input(https://docs.unity3d.com/ScriptReference/Input.html)
