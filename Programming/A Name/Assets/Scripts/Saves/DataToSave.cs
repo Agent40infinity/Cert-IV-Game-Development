@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataToSave : MonoBehaviour {
+[System.Serializable]
+public class DataToSave
+{
+    public int level;
+    public string playerName;
+    public float health;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public DataToSave(PlayerManager player)
+    {
+        level = player.level;
+        playerName = player.name;
+        health = player.health;
+    }
 }
