@@ -26,6 +26,10 @@ public class PlayerManager : MonoBehaviour
         level = data.level;
         name = data.playerName;
         health = data.health;
+        x = data.x;
+        y = data.y;
+        z = data.z;
+        this.transform.position = new Vector3(x, y, z);
 
     }
 }
