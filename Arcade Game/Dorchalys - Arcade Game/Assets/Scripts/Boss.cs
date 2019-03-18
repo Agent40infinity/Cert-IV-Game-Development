@@ -19,6 +19,11 @@ namespace Boss
 		private int chargeV = 0; //Charge Attack's value
 		private int burstV = 0; //Burst Attack's value
 		private int phase = 0; //Determines the difficulty of the boss
+        private int move = 0; //Counts up everytime an ability is used
+
+        //Floats:
+        public float distanceFP = 0f; //Tracks how far away the Player is from the boss
+        public static int Range = 0; //Used to randomly select an attack pattern
 	 
 		//Booleans:
 		private bool startPeriod = true; //Checks whether or not it's the start of an instance
@@ -27,14 +32,20 @@ namespace Boss
 		private bool chargeAttack = false; //Checks whether or not a charge attack has been selected
 		private bool burstAttack = false; //Checks whether or not a burst attack has been selected
 		private bool secondPhase = false; //Checks whether or not the second phase has activated
+        private bool attackPossible = true; //Checks whether or no an attack is avaliable for use
+
+        //Reference:
+        public Transform Player;
 
 		void Start ()
 		{
 		
 		}
 
-		void FixedUpdate()
+		void FixedUpdate()  
 		{
+            distanceFP = Vector2.Distance(transform.position, Player.position);
+
 			if (startPeriod == true)
 			{
 				sTimer++;
@@ -52,10 +63,20 @@ namespace Boss
 
 		public void CalcAttack()
 		{ 
-			if (aTimer == 0)
+			if (aTimer == 0 && attackPossible == true)
 			{
 				aTimer--;
-				set = 2;
+                if (distanceFP <= 10)
+                {
+                    if (Random.Range(1, 3))
+                    Basic();
+                    Charge();
+                    if (secondPhase == true)
+                    {
+                        Burst();
+                    }
+                }
+				//set = 2;
 				Basic();
 				Charge();
 				Jump();
@@ -66,25 +87,25 @@ namespace Boss
 		public void Basic()
 		{
 			aTimer = basicV;
-			set = 3;
+			//set = 3;
 		}
 
 		public void Charge()
 		{ 
 			aTimer = chargeV;
-			set = 4;
+			//set = 4;
 		}	
 
 		public void Jump()
 		{ 
 			aTimer = jumpV;
-			set = 5;
+			//set = 5;
 		}
 
 		public void Burst()
 		{ 
 			aTimer = burstV;
-			set = 6;
+			//set = 6;
 		}
 	}
 }

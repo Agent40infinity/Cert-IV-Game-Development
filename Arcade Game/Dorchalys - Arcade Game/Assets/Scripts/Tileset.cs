@@ -151,11 +151,11 @@ namespace Tileset
                     //Ignore Me ------->       print("tileWidth = " +tileWidth+ " Position("+x+ "," + y +") = " + tileset_Layer1[y, x]);
                     if (tileset_Layer2[y, x] == 0)
                     {
-                        Instantiate(tile_32, new Vector3(x, y, -2), transform.rotation);
+                        Instantiate(tile_32, new Vector3(x, y, 2), transform.rotation);
                     }
                     if (tileset_Layer2[y, x] == 1)
                     {
-                        Instantiate(tile_32, new Vector3(x, y, -2), transform.rotation);
+                        Instantiate(tile_32, new Vector3(x, y, 2), transform.rotation);
                     }
                     if (tileset_Layer2[y, x] == 2)
                     {
@@ -178,11 +178,11 @@ namespace Tileset
                     //Ignore Me ------->       print("tileWidth = " +tileWidth+ " Position("+x+ "," + y +") = " + tileset_Layer1[y, x]);
                     if (tileset_Layer3[y, x] == 0)
                     {
-                        Instantiate(tile_32, new Vector3(x, y, -4), transform.rotation);
+                        Instantiate(tile_32, new Vector3(x, y, 4), transform.rotation);
                     }
                     if (tileset_Layer3[y, x] == 1)
                     {
-                        Instantiate(tile_32, new Vector3(x, y, -4), transform.rotation);
+                        Instantiate(tile_32, new Vector3(x, y, 4), transform.rotation);
                     }
                     if (tileset_Layer3[y, x] == 2)
                     {
