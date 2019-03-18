@@ -7,9 +7,17 @@ public class PlayerManager : MonoBehaviour
     public int level;
     public new string name;
     public float health;
+    public SliderHealth.SliderHealth SliderHealth;
+    public CheckPoint CheckPoint;
+    public float x, y, z;
+
 
     public void SavePlayer()
     {
+        health = SliderHealth.curHealth;
+        x = CheckPoint.curCheckpoint.x;
+        y = CheckPoint.curCheckpoint.y;
+        z = CheckPoint.curCheckpoint.z;
         Save.SavePlayerData(this);
     }
     public void LoadPlayer()
