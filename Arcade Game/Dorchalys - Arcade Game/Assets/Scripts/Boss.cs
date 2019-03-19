@@ -70,7 +70,7 @@ namespace Boss
 
             {
 				//aTimer--;
-                if (distanceFP <= 10f)
+                if (distanceFP <= 10)
                 {
                     if (aRange == 1)
                     {
@@ -129,25 +129,25 @@ namespace Boss
 		public void Basic()
 		{
             //aTimer = basicV;
-            attackPossible = false;
+
 		}
 
 		public void Charge()
 		{
             //aTimer = chargeV;
-            attackPossible = false;
+
         }	
 
 		public void Jump()
 		{
             //aTimer = jumpV;
-            attackPossible = false;
+
         }
 
 		public void Burst()
 		{
             //aTimer = burstV;
-            attackPossible = false;
+
         }
 
         public void Waiting()
