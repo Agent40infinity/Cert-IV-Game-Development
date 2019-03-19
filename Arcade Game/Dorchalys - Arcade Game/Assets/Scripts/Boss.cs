@@ -60,15 +60,16 @@ namespace Boss
 			}
 			else if (startPeriod == false)
 			{
-			CalcAttack();
+			    CalcAttack();
 			}
 		}
 
 		public void CalcAttack()
 		{ 
-			if (aTimer >= 0 && attackPossible == true)
-			{
-				aTimer--;
+			if (attackPossible == true && attackReset == false) //aTimer >= 0 &&
+
+            {
+				//aTimer--;
                 if (distanceFP <= 10f)
                 {
                     if (aRange == 1)
@@ -90,7 +91,7 @@ namespace Boss
                         }
                         else
                         {
-                            aRange = Random.Range(1, 3);
+                            attackReset = true;
                             print("Redo");
                         }
                     }
@@ -103,7 +104,19 @@ namespace Boss
 			}
             if (attackReset == true)
             {
-                aRange = Random.Range(0, 4);
+                aRange = Random.Range(0, 101); //only 3 types of attacks
+                if (aRange <= 100 && aRange >= 51)
+                {
+                    aRange = 1;
+                }
+                else if (aRange <= 50  && aRange >= 11)
+                {
+                    aRange = 2;
+                }
+                else if (aRange <= 1 && aRange >= 10)
+                {
+                    aRange = 3;
+                }
                 attackReset = false;
             }
             if (waiting == true)
@@ -115,27 +128,27 @@ namespace Boss
 
 		public void Basic()
 		{
-			aTimer = basicV;
-			//set = 3;
+            //aTimer = basicV;
+            attackPossible = false;
 		}
 
 		public void Charge()
-		{ 
-			aTimer = chargeV;
-			//set = 4;
-		}	
+		{
+            //aTimer = chargeV;
+            attackPossible = false;
+        }	
 
 		public void Jump()
-		{ 
-			aTimer = jumpV;
-			//set = 5;
-		}
+		{
+            //aTimer = jumpV;
+            attackPossible = false;
+        }
 
 		public void Burst()
-		{ 
-			aTimer = burstV;
-			//set = 6;
-		}
+		{
+            //aTimer = burstV;
+            attackPossible = false;
+        }
 
         public void Waiting()
         {
