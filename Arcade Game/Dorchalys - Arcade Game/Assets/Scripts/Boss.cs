@@ -8,12 +8,13 @@ namespace Boss
 	{
 		//Integers:
 		private int tTimer = 0; //Tick rate timer
-		private int sTimer = 0; //Start timer
-		private int aTimer = 0; //Attack timer
+		public int sTimer = 0; //Start timer
+		public int aTimer = 100; //Attack timer
 		private int baTimer = 0; //Basic Attack timer
 		private int jTimer = 0; //Jump timer
 		private int cTimer = 0; //Charge timer
 		private int bTimer = 0; //Burst timer
+        private int rTimer = 60; //Rest timer
 		private int basicV = 0; //Basic Attack's value
 		private int jumpV = 0; //Jump Attack's value
 		private int chargeV = 0; //Charge Attack's value
@@ -23,7 +24,7 @@ namespace Boss
 
         //Floats:
         public float distanceFP = 0f; //Tracks how far away the Player is from the boss
-        public static int Range = 0; //Used to randomly select an attack pattern
+        public int aRange = 0; //Used to randomly select an attack pattern
 	 
 		//Booleans:
 		private bool startPeriod = true; //Checks whether or not it's the start of an instance
@@ -33,6 +34,8 @@ namespace Boss
 		private bool burstAttack = false; //Checks whether or not a burst attack has been selected
 		private bool secondPhase = false; //Checks whether or not the second phase has activated
         private bool attackPossible = true; //Checks whether or no an attack is avaliable for use
+        private bool attackReset = true; //Checks whether or not the attack pattern needs to be reset
+        private bool waiting = false; //Checks whether or not an attack has finished and starts the rest period
 
         //Reference:
         public Transform Player;
@@ -55,7 +58,7 @@ namespace Boss
 					sTimer = 0;
 				}
 			}
-			else 
+			else if (startPeriod == false)
 			{
 			CalcAttack();
 			}
@@ -63,25 +66,51 @@ namespace Boss
 
 		public void CalcAttack()
 		{ 
-			if (aTimer == 0 && attackPossible == true)
+			if (aTimer >= 0 && attackPossible == true)
 			{
 				aTimer--;
-                if (distanceFP <= 10)
+                if (distanceFP <= 10f)
                 {
-                    if (Random.Range(1, 3))
-                    Basic();
-                    Charge();
-                    if (secondPhase == true)
+                    if (aRange == 1)
                     {
-                        Burst();
+                        Basic();
+                        print("Basic");
+                    }
+                    else if (aRange == 2)
+                    {
+                        Charge();
+                        print("Charge");
+                    }
+                    else if (aRange == 3)
+                    {
+                        if (secondPhase == true)
+                        {
+                            Burst();
+                            print("Burst");
+                        }
+                        else
+                        {
+                            aRange = Random.Range(1, 3);
+                            print("Redo");
+                        }
                     }
                 }
-				//set = 2;
-				Basic();
-				Charge();
-				Jump();
-				Burst();
+                else
+                {
+                    Jump();
+                    print("Jump");
+                }
 			}
+            if (attackReset == true)
+            {
+                aRange = Random.Range(0, 4);
+                attackReset = false;
+            }
+            if (waiting == true)
+            {
+                Waiting();
+            }
+
 		}
 
 		public void Basic()
@@ -107,5 +136,14 @@ namespace Boss
 			aTimer = burstV;
 			//set = 6;
 		}
+
+        public void Waiting()
+        {
+            rTimer--;
+            if (rTimer == 0)
+            {
+                rTimer = 60;
+            }
+        }
 	}
 }
