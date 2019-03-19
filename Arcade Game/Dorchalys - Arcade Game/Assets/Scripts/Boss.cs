@@ -9,11 +9,11 @@ namespace Boss
 		//Integers:
 		private int tTimer = 0; //Tick rate timer
 		public int sTimer = 0; //Start timer
-		public int aTimer = 100; //Attack timer
-		private int baTimer = 0; //Basic Attack timer
-		private int jTimer = 0; //Jump timer
-		private int cTimer = 0; //Charge timer
-		private int bTimer = 0; //Burst timer
+		public int aTimer = 0; //Attack timer
+		//private int baTimer = 0; //Basic Attack timer
+		//private int jTimer = 0; //Jump timer
+		//private int cTimer = 0; //Charge timer
+		//private int bTimer = 0; //Burst timer
         private int rTimer = 60; //Rest timer
 		private int basicV = 0; //Basic Attack's value
 		private int jumpV = 0; //Jump Attack's value
@@ -128,26 +128,39 @@ namespace Boss
 
 		public void Basic()
 		{
-            //aTimer = basicV;
+            aTimer = basicV;
+			if (aTimer >= 0)
+			{
+				aTimer--;
+			}
 
 		}
 
 		public void Charge()
 		{
-            //aTimer = chargeV;
-
+            aTimer = chargeV;
+			if (aTimer >= 0)
+			{
+				aTimer--;
+			}
         }	
 
 		public void Jump()
 		{
-            //aTimer = jumpV;
-
+            aTimer = jumpV;
+			if (aTimer >= 0)
+			{
+				aTimer--;
+			}
         }
 
 		public void Burst()
 		{
-            //aTimer = burstV;
-
+            aTimer = burstV;
+			if (aTimer >= 0)
+			{
+				aTimer--;
+			}
         }
 
         public void Waiting()
