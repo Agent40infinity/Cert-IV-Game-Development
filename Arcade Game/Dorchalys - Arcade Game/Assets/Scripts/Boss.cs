@@ -36,6 +36,7 @@ namespace Boss
         private bool attackPossible = true; //Checks whether or no an attack is avaliable for use
         private bool attackReset = true; //Checks whether or not the attack pattern needs to be reset
         private bool waiting = false; //Checks whether or not an attack has finished and starts the rest period
+        private bool attackActive = false; //Checks whether or not a timer is needed to finish an attack
 
         //Reference:
         public Transform Player;
@@ -119,6 +120,13 @@ namespace Boss
                 }
                 attackReset = false;
             }
+            //if (attackActive == true)
+            //{
+            //    if (aTimer >= 0)
+            //    {
+            //        aTimer--;
+            //    }
+            //}
             if (waiting == true)
             {
                 Waiting();
