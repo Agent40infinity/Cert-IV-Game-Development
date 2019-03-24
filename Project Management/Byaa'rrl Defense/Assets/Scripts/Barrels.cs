@@ -2,15 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barrels : MonoBehaviour {
+public class Barrels : MonoBehaviour
+{
+    public Transform WaypointParent;
+    public float moveSpeed = 2f;
+    public float stoppingDistance = 0.1f;
+    public Transform[] waypoints;
+    private int currentIndex = 1;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    void Start ()
+    {
+        waypoints = WaypointParent.GetComponentsInChildren<Transform>();
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        Patrol();
+    }
+
+    public void Patrol()
+    {
+        Transform point = waypoints[currentIndex];
+        float distance = Vector2.Distance(transform.position, point.position);
+        if (distance < stoppingDistance)
+        {
+            currentIndex++;
+        }
+        if (currentIndex == waypoints.Length)
+        {
+            currentIndex = 1;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, point.position, moveSpeed * Time.deltaTime);
+    }
 }
