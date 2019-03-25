@@ -10,6 +10,9 @@ public class Barrels : MonoBehaviour
     public Transform[,] waypoints = new Transform[3,5];
     public int currentIndexX = 0;
     public int currentIndexY = 1;
+    public float distanceP1;
+    public float distanceP2;
+    public float distanceP3;
     
 
     void Start()
@@ -17,23 +20,50 @@ public class Barrels : MonoBehaviour
         LoadArray();
         //waypoints = WaypointParent.GetComponentsInChildren<Transform>();
         //waypoints[waypoints.Length+1] = GameObject.Find("Endpoint").transform;
-
+        CalculateDistance();
     }
 
     void Update()
     {
         Patrol();
+        Removal();
     }
 
+    public void CalculateDistance()
+    {
+        distanceP1 = Ship.distanceP1;
+        distanceP2 = Ship.distanceP2;
+        distanceP3 = Ship.distanceP3;
+
+        if (distanceP1 < distanceP2)
+        {
+            if (distanceP1 < distanceP3)
+            {
+                currentIndexX = 0;
+            }
+            else
+            {
+                currentIndexX = 2;
+            }
+        }
+        else if (distanceP2 < distanceP3)
+        {
+            currentIndexX = 1;
+        }
+        else
+        {
+            currentIndexX = 2;
+        }
+    }
+
+    public void Removal()
+    {
+        //UI.health--;
+    }
     public void Patrol()
     {
         Transform point = waypoints[currentIndexX,currentIndexY];
         print(currentIndexX + " - " + currentIndexY);
-
-        if(point == null)
-        {
-            print("Brah. Your shits fucked");
-        }
 
         float distance = Vector2.Distance(transform.position, point.position);
         
@@ -51,7 +81,6 @@ public class Barrels : MonoBehaviour
     public void LoadArray()
     {
         //WaypointParent.GetComponentsInChildren<Transform>();
-        print("Loading");
         waypoints[0,0] = GameObject.Find("Path_1").transform;
         waypoints[0,1] = GameObject.Find("Waypoint1-1").transform;
         waypoints[0,2] = GameObject.Find("Waypoint1-2").transform;
@@ -69,6 +98,5 @@ public class Barrels : MonoBehaviour
         waypoints[2, 2] = GameObject.Find("Waypoint3-2").transform;
         waypoints[2, 3] = GameObject.Find("Waypoint3-3").transform;
         waypoints[2, 4] = GameObject.Find("Endpoint").transform;
-        print("Loaded");
     }
 }

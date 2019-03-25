@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile_32: {fileID: 1803180413641088, guid: 48baccdc6a46c4f4e9a9ea2103de2596, type: 2}
+  ground: {fileID: 0}
   tileWidth: 40
   tileHeight: 30
 --- !u!1 &1546396954

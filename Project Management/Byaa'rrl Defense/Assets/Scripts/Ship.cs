@@ -18,9 +18,9 @@ public class Ship : MonoBehaviour
     private int spawnRate = 60; //move to Round later
     private int roundTimer = 0; //move to Round Later
     public GameObject barrels;
-    public float distanceP1;
-    public float distanceP2;
-    public float distanceP3;
+    public static float distanceP1;
+    public static float distanceP2;
+    public static float distanceP3;
     public Transform Path_1;
     public Transform Path_2;
     public Transform Path_3;
@@ -58,26 +58,6 @@ public class Ship : MonoBehaviour
         distanceP1 = Vector2.Distance(transform.position, Path_1.position);
         distanceP2 = Vector2.Distance(transform.position, Path_2.position);
         distanceP3 = Vector2.Distance(transform.position, Path_3.position);
-
-        if (distanceP1 < distanceP2)
-        {
-            if (distanceP1 < distanceP3)
-            {
-                Barrels.currentIndexX = 1;
-            }
-            else
-            {
-                Barrels.currentIndexX = 3;
-            }
-        }
-        else if (distanceP2 < distanceP3)
-        {
-            Barrels.currentIndexX = 2;
-        }
-        else
-        {
-            Barrels.currentIndexX = 3;
-        }
     }
 
     public void Patrol()
