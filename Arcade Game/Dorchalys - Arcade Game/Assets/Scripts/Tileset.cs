@@ -10,7 +10,7 @@ namespace Tileset
         public GameObject tile_32;
         public int tileWidth = 40; //Sets the max value for tile Width;
         public int tileHeight = 30; //Sets the max value for tile Height;
-        public float[,] tileset_Layer1 =  //Top tileset layer for world initialization.
+        public int[,] tileset_Layer1 =  //Top tileset layer for world initialization.
             {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -122,26 +122,21 @@ namespace Tileset
                 for (int x = 0; x < tileWidth; x++) //Checks the  X position and value within the array to set it's content.
                 {
                     //Ignore Me ------->       print("tileWidth = " +tileWidth+ " Position("+x+ "," + y +") = " + tileset_Layer1[y, x]);
-                    if (tileset_Layer1[y,x] == 0)
+                    switch (tileset_Layer1[y, x])
                     {
-                        Instantiate(tile_32, new Vector3(x, y, 0), transform.rotation);
+                        case 0:
+                            Instantiate(tile_32, new Vector3(x, y, 0), transform.rotation);
+                            break;
+                        case 1:
+                            Instantiate(tile_32, new Vector3(x, y, 0), transform.rotation);
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
                     } 
-                    if (tileset_Layer1[y,x] == 1)
-                    {
-                        Instantiate(tile_32, new Vector3(x, y, 0), transform.rotation);
-                    }
-                    if (tileset_Layer1[y,x] == 2)
-                    {
-                       
-                    }
-                    if (tileset_Layer1[y,x] == 3)
-                    {
-                        
-                    }
-                    if (tileset_Layer1[y,y] == 4)
-                    {
-                        
-                    }
                 }
             }
             for (int y = 0; y < tileHeight; y++) //Checks the  Y position and value within the array to set it's content.
