@@ -17,7 +17,13 @@ public class Ship : MonoBehaviour
     private int currentBarrels = 0; //move to Round Later
     private int spawnRate = 60; //move to Round later
     private int roundTimer = 0; //move to Round Later
-    public GameObject Barrels;
+    public GameObject barrels;
+    public float distanceP1;
+    public float distanceP2;
+    public float distanceP3;
+    public Transform Path_1;
+    public Transform Path_2;
+    public Transform Path_3;
 
 
     public void Start()
@@ -30,6 +36,7 @@ public class Ship : MonoBehaviour
         //if (Round.RoundStart == true)
         //{
             SpawnBarrels();
+            CalculateDistance();
         //}
     }
 
@@ -40,10 +47,36 @@ public class Ship : MonoBehaviour
             roundTimer++;
             if (roundTimer >= spawnRate)
             {
-                Instantiate(Barrels, transform.position, transform.rotation);
+                Instantiate(barrels, transform.position, transform.rotation);
                 currentBarrels++;
                 roundTimer = 0;
             }
+        }
+    }
+    public void CalculateDistance()
+    {
+        distanceP1 = Vector2.Distance(transform.position, Path_1.position);
+        distanceP2 = Vector2.Distance(transform.position, Path_2.position);
+        distanceP3 = Vector2.Distance(transform.position, Path_3.position);
+
+        if (distanceP1 < distanceP2)
+        {
+            if (distanceP1 < distanceP3)
+            {
+                Barrels.currentIndexX = 1;
+            }
+            else
+            {
+                Barrels.currentIndexX = 3;
+            }
+        }
+        else if (distanceP2 < distanceP3)
+        {
+            Barrels.currentIndexX = 2;
+        }
+        else
+        {
+            Barrels.currentIndexX = 3;
         }
     }
 
