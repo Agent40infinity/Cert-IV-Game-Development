@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Barrels : MonoBehaviour
 {
-    public Transform WaypointParent;
     public float moveSpeed = 2f;
     public float stoppingDistance = 0.1f;
     public Transform[,] waypoints = new Transform[3,5];
@@ -13,7 +12,8 @@ public class Barrels : MonoBehaviour
     public float distanceP1;
     public float distanceP2;
     public float distanceP3;
-    
+
+    public static int health = 20; //Move to Health later    
 
     void Start()
     {
@@ -26,7 +26,19 @@ public class Barrels : MonoBehaviour
     void Update()
     {
         Patrol();
-        Removal();
+        Debug.Log(health);
+    }
+        
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Endpoint")
+        {
+            Debug.Log("No u");
+            health--;
+            Destroy(this.gameObject);
+        
+        }
+
     }
 
     public void CalculateDistance()
@@ -56,10 +68,6 @@ public class Barrels : MonoBehaviour
         }
     }
 
-    public void Removal()
-    {
-        //UI.health--;
-    }
     public void Patrol()
     {
         Transform point = waypoints[currentIndexX,currentIndexY];
@@ -71,7 +79,7 @@ public class Barrels : MonoBehaviour
         {
             currentIndexY++;
         }
-        if (currentIndexY == waypoints.Length)
+        if (currentIndexY == 5)
         {
             currentIndexY = 1;
         }
@@ -87,16 +95,16 @@ public class Barrels : MonoBehaviour
         waypoints[0,3] = GameObject.Find("Waypoint1-3").transform;
         waypoints[0,4] = GameObject.Find("Endpoint").transform;
 
-        waypoints[1, 0] = GameObject.Find("Path_2").transform;
-        waypoints[1, 1] = GameObject.Find("Waypoint2-1").transform;
-        waypoints[1, 2] = GameObject.Find("Waypoint2-2").transform;
-        waypoints[1, 3] = GameObject.Find("Waypoint2-3").transform;
-        waypoints[1, 4] = GameObject.Find("Endpoint").transform;
+        waypoints[1,0] = GameObject.Find("Path_2").transform;
+        waypoints[1,1] = GameObject.Find("Waypoint2-1").transform;
+        waypoints[1,2] = GameObject.Find("Waypoint2-2").transform;
+        waypoints[1,3] = GameObject.Find("Waypoint2-3").transform;
+        waypoints[1,4] = GameObject.Find("Endpoint").transform;
 
-        waypoints[2, 0] = GameObject.Find("Path_3").transform;
-        waypoints[2, 1] = GameObject.Find("Waypoint3-1").transform;
-        waypoints[2, 2] = GameObject.Find("Waypoint3-2").transform;
-        waypoints[2, 3] = GameObject.Find("Waypoint3-3").transform;
-        waypoints[2, 4] = GameObject.Find("Endpoint").transform;
+        waypoints[2,0] = GameObject.Find("Path_3").transform;
+        waypoints[2,1] = GameObject.Find("Waypoint3-1").transform;
+        waypoints[2,2] = GameObject.Find("Waypoint3-2").transform;
+        waypoints[2,3] = GameObject.Find("Waypoint3-3").transform;
+        waypoints[2,4] = GameObject.Find("Endpoint").transform;
     }
 }

@@ -587,9 +587,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 647795079}
+  - component: {fileID: 647795080}
   m_Layer: 0
   m_Name: Endpoint
-  m_TagString: Untagged
+  m_TagString: Endpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -607,6 +608,21 @@ Transform:
   m_Father: {fileID: 2147207369}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &647795080
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 647795078}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1 &826497434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,9 +1142,6 @@ MonoBehaviour:
   - {fileID: 1104687381}
   - {fileID: 287101664}
   barrels: {fileID: 1101534051650188, guid: 955e9b678e3c0114f89b79a9c5a03255, type: 2}
-  distanceP1: 0
-  distanceP2: 0
-  distanceP3: 0
   Path_1: {fileID: 842871184}
   Path_2: {fileID: 1151890086}
   Path_3: {fileID: 831753784}

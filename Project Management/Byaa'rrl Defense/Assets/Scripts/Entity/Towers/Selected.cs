@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaypointMovement : MonoBehaviour {
+public class Selected : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
