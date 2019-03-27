@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barrels : MonoBehaviour
+public class Barrel : MonoBehaviour
 {
     public float moveSpeed = 2f;
     public float stoppingDistance = 0.1f;

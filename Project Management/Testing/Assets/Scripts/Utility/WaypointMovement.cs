@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Selected : MonoBehaviour
-{
+public class WaypointMovement : MonoBehaviour
+{ 
 
 	void Start ()
     {
 		
 	}
-
+	
 	void Update ()
     {
 		

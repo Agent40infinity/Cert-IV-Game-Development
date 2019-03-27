@@ -417,7 +417,7 @@ MonoBehaviour:
   dark: {fileID: 1638272125047202, guid: fd55d05eed096ea49a05960e0453e0e5, type: 2}
   wall: {fileID: 1972869609566504, guid: e9688efc603050243944e581ff220142, type: 2}
   tileWidth: 40
-  tileHeight: 30
+  tileHeight: 23
 --- !u!1 &1546396954
 GameObject:
   m_ObjectHideFlags: 0
