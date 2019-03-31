@@ -53,7 +53,7 @@ public class Ship : MonoBehaviour
         {
             Debug.Log("Spawning Complete");
             Rounds.roundStart = false;
-            Rounds.currentBarrels = 0;
+            Rounds.currentBarrels = 0;  
             Rounds.endRound = true;
         }
     }
