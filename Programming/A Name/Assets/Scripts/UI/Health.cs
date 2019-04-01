@@ -37,7 +37,7 @@ namespace Health
                 {
                     healthSlots[i].sprite = hearts[0];
                 }
-                else if ((curHealth >= (healthPerSection * 1) + (healthPerSection * 2) * i))
+                else if (curHealth >= (healthPerSection * 1) + (healthPerSection * 2) * i)
                 {
                     healthSlots[i].sprite = hearts[1];
                 }
