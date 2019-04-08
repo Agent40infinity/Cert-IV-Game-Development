@@ -22,6 +22,8 @@ public class Ship : MonoBehaviour
     public Transform Path_2; //Creates a reference for Path 2's transform
     public Transform Path_3; //Creates a reference for Path 3's transform
 
+    public Transform barrelHolder;
+
 
     public void Start()
     {
@@ -45,7 +47,7 @@ public class Ship : MonoBehaviour
             Rounds.roundTimer++;
             if (Rounds.roundTimer >= Rounds.spawnRate) //Makes sure that the barrels spawn at the same rate as the set spawn rate
             {
-                Instantiate(barrels, transform.position, transform.rotation);
+                Instantiate(barrels, transform.position, transform.rotation, barrelHolder);
                 Rounds.currentBarrels++;
                 Rounds.roundTimer = 0;
             }

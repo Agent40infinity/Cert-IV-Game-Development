@@ -71,6 +71,9 @@ public class Selector : MonoBehaviour
                     GameObject towerPrefab = towers[currentTower];
                     //spawn a new tower
                     GameObject tower = Instantiate(towerPrefab, Towers);
+
+                    print(hit.transform.name);
+                    tower.GetComponent<Towers>().waypoints = hit.transform.GetComponent<Placeable>().spawnPoints;
                     //position new tower to tile
                     tower.transform.position = p.GetPlaceHere();
                     //tile is no longer placeable
