@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4052249277118006}
   - component: {fileID: 58421209288404810}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4147608628933722}
   - component: {fileID: 212970372314141498}
   - component: {fileID: 114101314712766580}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
