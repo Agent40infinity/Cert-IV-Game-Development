@@ -5,21 +5,19 @@ public class Interact : MonoBehaviour
 {
     #region Variables
 
-    [Header("Player and C" +
-        "amera connection")]
-    public GameObject player;
+    //[Header("Player and C" + "amera connection")]
     #endregion
     #region Start
     public void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
         //connect our player to the player variable via tag
         //connect our Camera to the mainCam variable via tag
     }
     #endregion
     #region Update
     public void Update()
-    {
+    { 
         if (Input.GetButtonDown("Interact"))
         {
             Ray interact;
@@ -34,6 +32,18 @@ public class Interact : MonoBehaviour
                 if (hitInfo.collider.CompareTag("Item"))
                 {
                     Debug.Log("NPC");
+                }
+            }
+
+            if (hitInfo.collider.CompareTag("NPC"))
+            {
+                Dialogue dlg = hitInfo.transform.GetComponent<Dialogue>();
+                if (dlg != null)
+                {
+                    Movement.CanMove = false;
+                    dlg.showDlg = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                 }
             }
         }

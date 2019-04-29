@@ -19,10 +19,13 @@ public class Movement : MonoBehaviour
     public float speed = 5;
     public float sprintSpeed = 10;
     public float gravity = 20;
+
+    public static bool CanMove;
     #endregion
     #region Start
     private void Start()
     {
+        CanMove = true;
         _charC = this.GetComponent<CharacterController>();
     }
     //charc is on this game object we need to get the character controller that is attached to it
@@ -30,37 +33,41 @@ public class Movement : MonoBehaviour
     #region Update
     private void Update()
     {
-        //if our character is grounded
-        if (_charC.isGrounded) //we are able to move in game scene meaning
+        if (CanMove == true)
         {
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            //moveDir is equal to a new vector3 that is affected by Input.Get Axis.. Horizontal, 0, Vertical
-            moveDirection = transform.TransformDirection(moveDirection);
-            //moveDir is transformed in the direction of our moveDir
-            if (Input.GetButton("Shift"))
+            //if our character is grounded
+            if (_charC.isGrounded) //we are able to move in game scene meaning
             {
-                moveDirection *= sprintSpeed;
+                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                //moveDir is equal to a new vector3 that is affected by Input.Get Axis.. Horizontal, 0, Vertical
+                moveDirection = transform.TransformDirection(moveDirection);
+                //moveDir is transformed in the direction of our moveDir
+                if (Input.GetButton("Shift"))
+                {
+                    moveDirection *= sprintSpeed;
+                }
+                else
+                {
+                    moveDirection *= speed;
+                }
+                //our moveDir is then multiplied by our speed
+                //Input Manager(https://docs.unity3d.com/Manual/class-InputManager.html)
+                //Input(https://docs.unity3d.com/ScriptReference/Input.html)
+                //we can also jump if we are grounded so
+                //in the input button for jump is pressed then
+                //our moveDir.y is equal to our jump speed
+                //regardless of if we are grounded or not the players moveDir.y is always affected by gravity timesed my time.deltaTime to normalize it
+                //we then tell the character Controller that it is moving in a direction timesed Time.deltaTime}
+                if (Input.GetButton("Jump"))
+                {
+                    moveDirection.y = jumpSpeed;
+                }
             }
-            else
-            {
-                moveDirection *= speed;
-            }
-            //our moveDir is then multiplied by our speed
-            //Input Manager(https://docs.unity3d.com/Manual/class-InputManager.html)
-            //Input(https://docs.unity3d.com/ScriptReference/Input.html)
-            //we can also jump if we are grounded so
-            //in the input button for jump is pressed then
-            //our moveDir.y is equal to our jump speed
-            //regardless of if we are grounded or not the players moveDir.y is always affected by gravity timesed my time.deltaTime to normalize it
-            //we then tell the character Controller that it is moving in a direction timesed Time.deltaTime}
-            if (Input.GetButton("Jump"))
-            {
-                moveDirection.y = jumpSpeed;
-            }
-        }
-        moveDirection.y -= gravity * Time.deltaTime;
+  moveDirection.y -= gravity * Time.deltaTime;
         _charC.Move(moveDirection * Time.deltaTime);
         #endregion
+        }
+      
     }
 }
 

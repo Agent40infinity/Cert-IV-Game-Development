@@ -42,6 +42,7 @@ public class Dialogue : MonoBehaviour
             {
                 if (GUI.Button(new Rect(scrt.x * 15, scrt.y * 8.5f, scrt.x, scrt.y * 0.5f), "Neat"))
                 {
+                    Movement.CanMove = true;
                     index = 0;
                     showDlg = false;
                     Cursor.lockState = CursorLockMode.Locked;
