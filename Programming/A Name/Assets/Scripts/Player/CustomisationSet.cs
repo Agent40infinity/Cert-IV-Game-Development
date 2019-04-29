@@ -2,28 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 //you will need to change Scenes
-public class CustomisationSet : MonoBehaviour {
-
+public class CustomisationSet : MonoBehaviour 
+{
     #region Variables
-   // [Header("Texture List")]
+    [Header("Texture List")]
     //Texture2D List for skin,hair, mouth, eyes
-   // [Header("Index")]
+	public List<Texture2D>() skin = new List<Texture2D>();
+	public List<Texture2D>() eyes = new List<Texture2D>();
+	public List<Texture2D>() mouth = new List<Texture2D>();
+	public List<Texture2D>() hair = new List<Texture2D>();
+	public List<Texture2D>() cloths = new List<Texture2D>();
+	public List<Texture2D>() armour = new List<Texture2D>();
+    [Header("Index")]
     //index numbers for our current skin, hair, mouth, eyes textures
-   // [Header("Renderer")]
+	public int skinIndex, eyesIndex, mouthIndex, hairIndex, clothsIndex, armourIndex;
+    [Header("Renderer")]
     //renderer for our character mesh so we can reference a material list
-    // [Header("Max Index")]
+	public renderer character;
+    [Header("Max Index")]
     //max amount of skin, hair, mouth, eyes textures that our lists are filling with
-   // [Header("Character Name")]
+	public int skinMax, eyesMax, mouthMax, hairMax, clothsMax, armourMax;
+    [Header("Character Name")]
     //name of our character that the user is making
+	public string characterName = "Adventure";
+	[Header("Stats")]
+	public CharacterClass charClass;
+	public CharacterRace charRace;
+	public int[] tempStats;
+	public int stats;
+	public string[] statName;
+	public int points;
     #endregion
 
     #region Start
-    //in start we need to set up the following
-    
+    public void Start
+	{
         #region for loop to pull textures from file
         //for loop looping from 0 to less than the max amount of skin textures we need
+		for (int i = 0; i > skinMax; i++)
+		{
             //creating a temp Texture2D that it grabs using Resources.Load from the Character File looking for Skin_#
             //add our temp texture that we just found to the skin List
+		}
         //for loop looping from 0 to less than the max amount of hair textures we need
             //creating a temp Texture2D that it grabs using Resources.Load from the Character File looking for Hair_#
             //add our temp texture that we just found to the hair List
@@ -39,7 +59,8 @@ public class CustomisationSet : MonoBehaviour {
         #region do this after making the function SetTexture
         //SetTexture skin, hair, mouth, eyes to the first texture 0
         #endregion
-    #endregion
+	}
+	#endregion
 
     #region SetTexture
     //Create a function that is called SetTexture it should contain a string and int
@@ -156,4 +177,22 @@ public class CustomisationSet : MonoBehaviour {
             //this button will run the save function and also load into the game level
     #endregion
     #endregion
+}
+
+public enum CharacterRace
+{
+	Dragonborn,
+	Dwarf,
+	Elf,
+	Gnome,
+	Half_Elf,
+	Half_Orc,
+	Halfling,
+	Human,
+	Tiefling	
+}
+
+public enum CharacterClass
+{
+	
 }
