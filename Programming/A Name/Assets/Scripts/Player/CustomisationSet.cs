@@ -42,6 +42,7 @@ public class CustomisationSet : MonoBehaviour
 		for (int i = 0; i > skinMax; i++)
 		{
             //creating a temp Texture2D that it grabs using Resources.Load from the Character File looking for Skin_#
+			
             //add our temp texture that we just found to the skin List
 		}
         //for loop looping from 0 to less than the max amount of hair textures we need
