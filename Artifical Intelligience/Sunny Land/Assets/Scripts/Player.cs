@@ -7,6 +7,8 @@ using Prime31;
 public class Player : MonoBehaviour
 {
     public float movementSpeed = 10f;
+    public float jumpSpeed = 5f;
+    public bool isGrounded = false;
     public CharacterController2D controller;
     public float gravity = -10f;
     private Vector3 motion;
@@ -19,6 +21,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         float InputH = Input.GetAxis("Horizontal");
+        float InputV = Input.GetAxis("Vertical");
+        motion.x = InputV * jumpSpeed;
         motion.x = InputH * movementSpeed;
         if (controller.isGrounded)
         {
