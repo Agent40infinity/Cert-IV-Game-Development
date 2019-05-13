@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
 namespace UI 
 {
     public class Menu : MonoBehaviour
@@ -14,12 +13,10 @@ namespace UI
         public KeyCode forward, backward, right, left, jump, sprint, crouch;//these are just basic example keyCodes that i have made
         public KeyCode holdingKey;//this is the key that we will be replacing, IT HOLDS THE CURRENT VALUE OF THE KEY WE ARE TRYING TO REPLACE 
         public AudioSource audi;//audio source in the game
-
         public int res;
         #endregion
-
         #region General
-        void Start() // Use this for initialization
+        void Start() // Use this for initialization       
         {
             loadScreen = true;//sets the intro screen to true
             res5 = true;//setting resolution 5 as out main resolution
@@ -35,7 +32,6 @@ namespace UI
             audioSlider = audi.volume;//set the audio slider to the same level as the audio source
             brightnessSlider = RenderSettings.ambientIntensity;//setting the brightness slider to the value of the games ambient lighting
         }
-
         void Update() // Update is called once per frame
         { 
             if (loadScreen)//if currently on load screen
@@ -53,7 +49,6 @@ namespace UI
             }
         }
         #endregion
-
         #region GUI
         void OnGUI() //this section allows for you to render your GUI elements in screen
         {
@@ -133,7 +128,6 @@ namespace UI
                         if (GUI.Button(new Rect(4 * scrW, 6.5f * scrH, 8 * scrW, 1 * scrH), "Back"))//if back is pressed then						
                         {
                             loadOptions = false;//turn off the load options	
-                            //allowing us to go back to our play options menu
                         }
                     }
                 }
@@ -143,21 +137,14 @@ namespace UI
                     GUI.Box(new Rect(0, 0, Screen.width, Screen.height), "");//standard back ground 
                     GUI.Box(new Rect(0.25f * scrW, 0.25f * scrH, 7.625f * scrW, 8.5f * scrH), "");//right back ground block
                     GUI.Box(new Rect(8.125f * scrW, 0.25f * scrH, 7.625f * scrW, 8.5f * scrH), "");//left background block
-
-                    //audio slider
                     GUI.Box(new Rect(0.5f * scrW, 0.5f * scrH, 7.125f * scrW, 1f * scrH), "Audio");//title and block for audio options
                     audioSlider = GUI.HorizontalSlider(new Rect(0.5f * scrW, 1f * scrH, 7.125f * scrW, 0.25f * scrH), audioSlider, 0.0F, 1.0F);//audio sliderbar 
                     GUI.Label(new Rect(4f * scrW, 1.125f * scrH, 0.75f * scrW, 0.25f * scrH), Mathf.FloorToInt(audioSlider * 100).ToString());// showing out 0 to 100
-
-                    //brightness slider
                     GUI.Box(new Rect(0.5f * scrW, 1.5f * scrH, 7.125f * scrW, 1f * scrH), "Brightness");//title and block for brightness options
                     brightnessSlider = GUI.HorizontalSlider(new Rect(0.5f * scrW, 2f * scrH, 7.125f * scrW, 0.25f * scrH), brightnessSlider, 0.0F, 1.0F);//brightness sliderbar
                     GUI.Label(new Rect(4f * scrW, 2.125f * scrH, 0.75f * scrW, 0.25f * scrH), Mathf.FloorToInt(brightnessSlider * 100).ToString());// showing out 0 to 100
-
-                    //resolution
                     GUI.Box(new Rect(0.5f * scrW, 2.5f * scrH, 7.125f * scrW, 6f * scrH), "Resolutions");//title and block for resolution options
                 #endregion
-
                     #region Resolution Changes
                     if (GUI.Toggle(new Rect(1.5f * scrW, 3.5f * scrH, 2f * scrW, 0.5f * scrH), res1, "1024 x 576") && res1 == false)//if this toggle is pressed
                     {
@@ -283,9 +270,7 @@ namespace UI
                             break;
                     }
                     #endregion
-
                     #region Windowed/Fullscreen
-                    //full Screen / windowed toggles
                     if (GUI.Toggle(new Rect(5.5f * scrW, 4.5f * scrH, 2 * scrW, 0.5f * scrH), fullScreen, "FullScreen")) //when pressed
                     {
                         Screen.fullScreen = true;//setting fullscreen to true
@@ -299,15 +284,12 @@ namespace UI
                         windowed = true;//changes windowed to true allowing the GUI to be filled
                     }
                     #endregion
-
                     #region Controls
-                    //Controls
                     GUI.Box(new Rect(8.4f * scrW, 0.5f * scrH, 7.125f * scrW, 8f * scrH), "Controls");//left control block
                     Event e = Event.current;
                     #region Disable Duplicates
                     #region Forwards
                     if (!(backward == KeyCode.None || left == KeyCode.None || right == KeyCode.None || jump == KeyCode.None || crouch == KeyCode.None || sprint == KeyCode.None))
-                    //if all the other keys are not equal to none than this one can be edited
                     {
                         if (GUI.Button(new Rect(14f * scrW, 1f * scrH, 1f * scrW, 1f * scrH), forward.ToString()))//if the GUI button for foward (that is also showing the current key) is pressed
                         {
@@ -320,10 +302,8 @@ namespace UI
                         GUI.Box(new Rect(14f * scrW, 1f * scrH, 1f * scrW, 1f * scrH), forward.ToString());//if any other button except for this one is set to none make this one a box so it cant be changed
                     }
                     #endregion
-
                     #region Backwards
                     if (!(forward == KeyCode.None || left == KeyCode.None || right == KeyCode.None || jump == KeyCode.None || crouch == KeyCode.None || sprint == KeyCode.None))
-                    //if all the other keys are not equal to none than this one can be edited
                     {
                         if (GUI.Button(new Rect(14f * scrW, 2f * scrH, 1f * scrW, 1f * scrH), backward.ToString()))//if the GUI button for foward (that is also showing the current key) is pressed
                         {
@@ -336,10 +316,8 @@ namespace UI
                         GUI.Box(new Rect(14f * scrW, 2f * scrH, 1f * scrW, 1f * scrH), backward.ToString());//if any other button except for this one is set to none make this one a box so it cant be changed
                     }
                     #endregion
-
                     #region Left
                     if (!(forward == KeyCode.None || backward == KeyCode.None || right == KeyCode.None || jump == KeyCode.None || crouch == KeyCode.None || sprint == KeyCode.None))
-                    //if all the other keys are not equal to none than this one can be edited
                     {
                         if (GUI.Button(new Rect(14f * scrW, 3f * scrH, 1f * scrW, 1f * scrH), left.ToString()))//if the GUI button for foward (that is also showing the current key) is pressed
                         {
@@ -352,10 +330,8 @@ namespace UI
                         GUI.Box(new Rect(14f * scrW, 3f * scrH, 1f * scrW, 1f * scrH), left.ToString());//if any other button except for this one is set to none make this one a box so it cant be changed
                     }
                     #endregion
-
                     #region Right
                     if (!(forward == KeyCode.None || left == KeyCode.None || backward == KeyCode.None || jump == KeyCode.None || crouch == KeyCode.None || sprint == KeyCode.None))
-                    //if all the other keys are not equal to none than this one can be edited
                     {
                         if (GUI.Button(new Rect(14f * scrW, 4f * scrH, 1f * scrW, 1f * scrH), right.ToString()))
                         {
@@ -368,10 +344,8 @@ namespace UI
                         GUI.Box(new Rect(14f * scrW, 4f * scrH, 1f * scrW, 1f * scrH), right.ToString());//if any other button except for this one is set to none make this one a box so it cant be changed
                     }
                     #endregion
-
                     #region Jump
                     if (!(forward == KeyCode.None || left == KeyCode.None || right == KeyCode.None || backward == KeyCode.None || crouch == KeyCode.None || sprint == KeyCode.None))
-                    //if all the other keys are not equal to none than this one can be edited
                     {
                         if (GUI.Button(new Rect(14f * scrW, 5f * scrH, 1f * scrW, 1f * scrH), jump.ToString()))//if the GUI button for foward (that is also showing the current key) is pressed
                         {
@@ -384,10 +358,8 @@ namespace UI
                         GUI.Box(new Rect(14f * scrW, 5f * scrH, 1f * scrW, 1f * scrH), jump.ToString());//if any other button except for this one is set to none make this one a box so it cant be changed
                     }
                     #endregion
-
                     #region Sprint
                     if (!(forward == KeyCode.None || left == KeyCode.None || right == KeyCode.None || jump == KeyCode.None || crouch == KeyCode.None || backward == KeyCode.None))
-                    //if all the other keys are not equal to none than this one can be edited
                     {
                         if (GUI.Button(new Rect(14f * scrW, 6f * scrH, 1f * scrW, 1f * scrH), sprint.ToString()))//if the GUI button for foward (that is also showing the current key) is pressed
                         {
@@ -400,10 +372,8 @@ namespace UI
                         GUI.Box(new Rect(14f * scrW, 6f * scrH, 1f * scrW, 01f * scrH), sprint.ToString());//if any other button except for this one is set to none make this one a box so it cant be changed
                     }
                     #endregion
-
                     #region Crouch
                     if (!(forward == KeyCode.None || left == KeyCode.None || right == KeyCode.None || jump == KeyCode.None || backward == KeyCode.None || sprint == KeyCode.None))
-                    //if all the other keys are not equal to none than this one can be edited
                     {
                         if (GUI.Button(new Rect(14f * scrW, 7f * scrH, 1f * scrW, 1f * scrH), crouch.ToString()))//if the GUI button for foward (that is also showing the current key) is pressed
                         {
@@ -417,7 +387,6 @@ namespace UI
                     }
                     #endregion
                     #endregion
-
                     #region Control Changes
                     #region Forward
                     if (forward == KeyCode.None && e.isKey)//if forward is set to none and if an event is triggerent by a key press
@@ -436,7 +405,6 @@ namespace UI
                             }
                     }
                     #endregion
-
                     #region Backwards
                     if (backward == KeyCode.None && e.isKey)//if backward is set to none and if an event is triggerent by a key press
                     {
@@ -454,7 +422,6 @@ namespace UI
                             }
                     }
                     #endregion
-
                     #region Left
                     if (left == KeyCode.None && e.isKey)//if left is set to none and if an event is triggerent by a key press
                     {
@@ -472,7 +439,6 @@ namespace UI
                             }
                     }
                     #endregion
-
                     #region Right
                     if (right == KeyCode.None && e.isKey)//if right is set to none and if an event is triggerent by a key press
                     {
@@ -490,7 +456,6 @@ namespace UI
                             }
                     }
                     #endregion
-
                     #region Jump
                     if (jump == KeyCode.None && e.isKey)//if jump is set to none and if an event is triggerent by a key press
                     {
@@ -508,7 +473,6 @@ namespace UI
                             }
                     }
                     #endregion
-
                     #region Sprint
                     if (sprint == KeyCode.None && e.isKey)//if sprint is set to none and if an event is triggerent by a key press
                     {
@@ -526,7 +490,6 @@ namespace UI
                             }
                     }
                     #endregion
-
                     #region Crouch
                     if (crouch == KeyCode.None && e.isKey)//if crouch is set to none and if an event is triggerent by a key press
                     {
@@ -545,7 +508,6 @@ namespace UI
                     }
                     #endregion
                     #endregion
-
                     #region Control Labels
                     GUI.Box(new Rect(8.75f * scrW, 1f * scrH, 6.25f * scrW, 1f * scrH), "Forward");
                     GUI.Box(new Rect(8.75f * scrW, 2f * scrH, 6.25f * scrW, 1f * scrH), "Backward");
@@ -555,7 +517,6 @@ namespace UI
                     GUI.Box(new Rect(8.75f * scrW, 6f * scrH, 6.25f * scrW, 1f * scrH), "Sprint");
                     GUI.Box(new Rect(8.75f * scrW, 7f * scrH, 6.25f * scrW, 1f * scrH), "Crouch");  
                     if (!(forward == KeyCode.None || backward == KeyCode.None || left == KeyCode.None || right == KeyCode.None || jump == KeyCode.None || crouch == KeyCode.None || sprint == KeyCode.None))
-                    //if none of the keys are set to none
                     {
                         if (GUI.Button(new Rect(12.5f * scrW, 8f * scrH, 3 * scrW, 0.5f * scrH), "Back"))//if back is pressed then
                         {
