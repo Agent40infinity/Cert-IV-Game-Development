@@ -290,7 +290,6 @@ public class CustomisationSet : MonoBehaviour
             }
             ChooseClass(selectedIndex);
         }
-        GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Armour");
         if (GUI.Button(new Rect(5.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
         {
             selectedIndex++;
@@ -300,7 +299,27 @@ public class CustomisationSet : MonoBehaviour
             }
             ChooseClass(selectedIndex);
         }
-        i++;
+        GUI.Box(new Rect(3.75f * scrtW, 2f * scrtH, 2f * scrtW, 0.5f * scrtH), "Points: " + points);
+        for (int x = 0; x < 6; x++)
+        {
+            if (points > 0)
+            {
+                if (GUI.Button(new Rect(5.75f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "+"))
+                {
+                    points--;
+                    tempStats[x]++; 
+                }
+            }
+            GUI.Box(new Rect(3.75f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 2f * scrtW, 0.5f * scrtH), statArray[x] + ": " + (tempStats[x] + stats[x]));
+            if (points < 10 && tempStats[x] > 0)
+            {
+                if (GUI.Button(new Rect(3.25f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "-"))
+                {
+                    points++;
+                    tempStats[x]--;
+                }
+            }
+        }
     }
     #endregion
     void ChooseClass(int className)
