@@ -6,6 +6,7 @@ public class CustomisationGet : MonoBehaviour {
 
     [Header("Character")]
     public Renderer character;
+    public bool setNeeded = true;
 
     #region Start
     public void Start()
@@ -18,7 +19,10 @@ public class CustomisationGet : MonoBehaviour {
     #region LoadTexture Function
     void LoadTexture()
     {
-
+        if (setNeeded == true)
+        {
+            //SetTexture();
+        }
     }
     //check to see if our save file for this character
     //if it doesnt then load the CustomSet level
