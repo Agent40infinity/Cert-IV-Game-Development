@@ -20,12 +20,12 @@ public class Movement : MonoBehaviour
     public float sprintSpeed = 10;
     public float gravity = 20;
 
-    public static bool CanMove;
+    public static bool canMove;
     #endregion
     #region Start
     private void Start()
     {
-        CanMove = true;
+        canMove = true;
         _charC = this.GetComponent<CharacterController>();
     }
     //charc is on this game object we need to get the character controller that is attached to it
@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
     #region Update
     private void Update()
     {
-        if (CanMove == true)
+        if (canMove == true)
         {
             //if our character is grounded
             if (_charC.isGrounded) //we are able to move in game scene meaning

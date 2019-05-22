@@ -40,7 +40,7 @@ public class Interact : MonoBehaviour
                 Dialogue dlg = hitInfo.transform.GetComponent<Dialogue>();
                 if (dlg != null)
                 {
-                    Movement.CanMove = false;
+                    Movement.canMove = false;
                     dlg.showDlg = true;
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;

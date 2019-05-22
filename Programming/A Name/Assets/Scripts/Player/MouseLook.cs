@@ -42,7 +42,7 @@ public class MouseLook : MonoBehaviour
     #region Update
     public void Update()
     {
-        if (Movement.CanMove == true)
+        if (Movement.canMove == true)
         {
             #region Mouse X and Y
             //if our axis is set to Mouse X and Y

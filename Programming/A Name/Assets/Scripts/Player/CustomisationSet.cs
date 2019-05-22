@@ -34,6 +34,8 @@ public class CustomisationSet : MonoBehaviour
     public CharacterClass charClsas = CharacterClass.Barbarian;
     public string[] selectedClass = new string[8];
     public int selectedIndex = 0;
+
+    public GameObject customizer;
     #endregion
 
     #region Start
@@ -275,7 +277,9 @@ public class CustomisationSet : MonoBehaviour
         if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 2 * scrtW, 0.5f * scrtH), "Save and Play"))
         {
             Save();
-            SceneManager.LoadScene(2);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            customizer.SetActive(false);
         }
         i = 0;
         GUI.Box(new Rect(3.75f * scrtW, scrtH + i * (0.5f * scrtH), 2 * scrtW, 0.5f * scrtH), "Class");
