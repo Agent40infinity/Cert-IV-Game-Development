@@ -5016,7 +5016,7 @@ MonoBehaviour:
   dropLocation: {fileID: 1059124046}
   curWeapon: {fileID: 0}
   curHelmet: {fileID: 0}
-  health: {fileID: 0}
+  health: {fileID: 272827026}
 --- !u!4 &1781686608
 Transform:
   m_ObjectHideFlags: 0
