@@ -36,7 +36,7 @@ public class ItemData : MonoBehaviour
                 name = "Apple";
                 value = 5;
                 description = "Munchy and Crunchy";
-                icon = "Food/1";
+                icon = "Food/1.png";
                 mesh = "Food/1_Mesh";
                 type = ItemType.Food;
                 heal = 5;
@@ -65,7 +65,7 @@ public class ItemData : MonoBehaviour
                 amount = 1;
                 break;
                 #endregion
-                #region Weapon 100-199
+            #region Weapon 100-199
             case 100:
                 itemID = 0100;
                 name = "Golden Knife";
