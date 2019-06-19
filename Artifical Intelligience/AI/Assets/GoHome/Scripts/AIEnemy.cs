@@ -7,7 +7,7 @@ public class AIEnemy : MonoBehaviour {
 
     public Transform target;
     private NavMeshAgent agent; //Reference to the NavMeshAgent
-    void Start ()
+    void Start () //Used to get Components required
     {
         agent = GetComponent<NavMeshAgent>();
 	}

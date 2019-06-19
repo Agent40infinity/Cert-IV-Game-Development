@@ -12,7 +12,7 @@ public class Selector : MonoBehaviour
 
     private Vector3 placeablePoint;
 
-	void OnDrawGizmos ()
+	void OnDrawGizmos () //Debug for the scene to show us raycasts and other oebjects
     {
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         Gizmos.DrawLine(mouseRay.origin, mouseRay.origin + mouseRay.direction * 1000f);
@@ -46,7 +46,7 @@ public class Selector : MonoBehaviour
         }
 	}
 
-    public void DisableAllHolograms()
+    public void DisableAllHolograms() //Disable hologram after tower is placed
     {
         foreach (var holo in holograms)
         {

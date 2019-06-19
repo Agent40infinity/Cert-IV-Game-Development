@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     private int health = 0;
 
-	void Start ()
+	void Start () //Gets components needed and sets the health up
     {
         health = maxHealth; 
         agent = GetComponent<NavMeshAgent>(); //Get NavMeshAgent

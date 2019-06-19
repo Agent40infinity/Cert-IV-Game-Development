@@ -10,13 +10,13 @@ public class CameraPan : MonoBehaviour
     public float zoomSensitivity = 10;
     public Vector3 size = new Vector3(20f, 1f, 20f);
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected() //Debug for the scene
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, size);
     }
 
-    Vector3 GetAdjustedPos(Vector3 incomingPos)
+    Vector3 GetAdjustedPos(Vector3 incomingPos) //Used to set the maz and min values for x, y, and z of the camera pan
     {
         Vector3 pos = transform.position;
         Vector3 halfSize = size * .5f;

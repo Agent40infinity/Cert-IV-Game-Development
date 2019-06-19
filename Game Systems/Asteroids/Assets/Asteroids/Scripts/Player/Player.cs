@@ -9,15 +9,15 @@ namespace Asteroids
         public float movementSpeed = 10f;
         public float rotationSpeed = 360f;
         private Rigidbody2D rigid; 
-        void Start()
+        void Start() //Get Components needed
         {
             rigid = GetComponent<Rigidbody2D>();
         }
-        private void Update()
+        private void Update() //Reference the function/sub-routine
         {
             Control();
         }
-        void Control()
+        void Control() //Used to set the controls and allow the player to move through the rigidbody
         {
             if (Input.GetKey(KeyCode.W))
             {

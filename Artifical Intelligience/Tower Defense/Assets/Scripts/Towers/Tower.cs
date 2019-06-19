@@ -18,7 +18,7 @@ public class Tower : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
-    public virtual void Aim(Enemy e)
+    public virtual void Aim(Enemy e) //Face the enemy
     {
         print("I am aiming at '" + e.name + "'");
     }
@@ -28,7 +28,7 @@ public class Tower : MonoBehaviour
         print("I am attacking '" + e.name + "'");
     }
 
-    void DetectEnemy()
+    void DetectEnemy() //Detects the enemy within range
     {
         currentEnemy = null; //Reset currentEnemy (to null)
         Collider[] hits = Physics.OverlapSphere(transform.position, attackRange); //Get hit colliders from OverlapSphere

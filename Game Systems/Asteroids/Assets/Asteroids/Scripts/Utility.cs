@@ -14,5 +14,8 @@ public static class Utility
         camWidth += padding; //Applies padding
         return new Bounds(camPos, new Vector3(camWidth, camHeight, 100)); // Create a camera bounds from above information
     }
-    public static Vector3 GetRandomPosOnBounds
+    //public static Vector3 GetRandomPosOnBounds()
+    //{
+    //
+    //}
 }

@@ -56,7 +56,7 @@ public class CameraOrbit : MonoBehaviour
         {
             Ray camRay = new Ray(transform.position, -transform.forward);
             RaycastHit hit; //Stores the hit inforation after cast
-            if (Physics.SphereCast(camRay, castRadius, out hit, castDistance, hitLayers, ignoreTrggers ? QueryTriggerInteraction.Ignore : QueryTriggerInteraction.Collide))
+            if (Physics.SphereCast(camRay, castRadius, out hit, castDistance, hitLayers, ignoreTrggers ? QueryTriggerInteraction.Ignore : QueryTriggerInteraction.Collide)) 
             {
                 distance = hit.distance;
             }

@@ -7,11 +7,11 @@ public class Player : MonoBehaviour
 {
     public float movementSpeed = 20f;
     public Rigidbody rigid;
-	void Start ()
+	void Start () //Used to get the components required 
     {
         rigid = GetComponent<Rigidbody>();
 	}
-	void Update ()
+	void Update () //Used to record Input and then translate that into movement using the rigidbody
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputZ = Input.GetAxis("Vertical");
