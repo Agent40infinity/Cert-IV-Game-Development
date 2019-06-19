@@ -18,28 +18,28 @@ public class Player : MonoBehaviour
     public Animator anim;
     public SpriteRenderer rend;
 
-    void Start()
+    void Start() //Gets the required components
     {
         controller = GetComponent<CharacterController2D>();
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
 
-    void Update()
+    void Update() //Get Input | Call upon functions
     {
         float inputH = Input.GetAxis("Horizontal");
         float inputV = Input.GetAxis("Vertical");
-        if (!controller.isGrounded && !isClimbing)
+        if (!controller.isGrounded && !isClimbing) //Apply gravity
         {
             motion.y += gravity * 2 * Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump")) //used to Jump
         {
             Jump();
         }
 
-        if (!isClimbing)
+        if (!isClimbing) //Animation controller for jumping
         {
             anim.SetBool("isGrounded", controller.isGrounded);
             anim.SetFloat("JumpY", motion.y);
@@ -50,29 +50,29 @@ public class Player : MonoBehaviour
         controller.move(motion * Time.deltaTime);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos() //Gives reference within the scene 
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, centreRadius);
     }
 
-    void Move(float inputH)
+    void Move(float inputH) //Allows the player to move
     {
         motion.x = inputH * movementSpeed;
         anim.SetBool("isRunning", inputH != 0);
-        if (inputH != 0)
+        if (inputH != 0) //Flips the sprites in the sprite renderer when facing left and vice versa
         {
             rend.flipX = inputH < 0; 
         }
     }
 
-    void Climb(float inputV, float inputH)
+    void Climb(float inputV, float inputH) //Used to climb the ladder
     {
         bool isOverLadder = false;
         Vector3 inputDir = new Vector3(inputH, inputV, 0);
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, centreRadius);
-        foreach (var hit in hits)
+        foreach (var hit in hits) //Used to gather information from "Ladder" and "Ground" for the animator
         {
             if (hit.tag == "Ladder")
             {
@@ -88,25 +88,25 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (isOverLadder && inputV != 0)
+        if (isOverLadder && inputV != 0) //Checks if the player is able to climb the ladder
         {
             anim.SetBool("isClimbing", true);
             isClimbing = true;
         }
 
-        if (isClimbing)
+        if (isClimbing) //Allows the player to freely move on the ladder and remove gravity
         {
             motion.y = 0;
             transform.Translate(inputDir * movementSpeed * Time.deltaTime);
         }
 
-        if (!isOverLadder)
+        if (!isOverLadder) //Disables climbing animation 
         {
             anim.SetBool("isClimbing", false);
             isClimbing = false;
         }
 
-        anim.SetFloat("climbSpeed", inputDir.magnitude * movementSpeed);
+        anim.SetFloat("climbSpeed", inputDir.magnitude * movementSpeed); 
     }
 
     void Hurt()
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
 
     }
 
-    void Jump()
+    void Jump() //Used to jump
     {
         motion.y = jumpHeight*1.5f;
     }
