@@ -190,141 +190,303 @@ public class CustomisationSet : MonoBehaviour
         float scrtH = Screen.height / 9;
 
         int i = 0;
-        if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
-        {
-            SetTexture("Skin", -1);
-        }
-        GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Skin");
-        if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
-        {
-            SetTexture("Skin", 1);
-        }
-        i++;
-        if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
-        {
-            SetTexture("Hair", -1);
-        }
-        GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Hair");
-        if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
-        {
-            SetTexture("Hair", 1);
-        }
-        i++;
-        if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
-        {
-            SetTexture("Eyes", -1);
-        }
-        GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Eyes");
-        if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
-        {
-            SetTexture("Eyes", 1);
-        }
-        i++;
-        if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
-        {
-            SetTexture("Mouth", -1);
-        }
-        GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Mouth");
-        if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
-        {
-            SetTexture("Mouth", 1);
-        }
-        i++;
-        if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
-        {
-            SetTexture("Clothes", -1);
-        }
-        GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Clothes");
-        if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
-        {
-            SetTexture("Clothes", 1);
-        }
-        i++;
-        if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
-        {
-            SetTexture("Armour", -1);
-        }
-        GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Armour");
-        if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
-        {
-            SetTexture("Armour", 1);
-        }
-        i++;
+        //if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
+        //{
+        //    SetTexture("Skin", -1);
+        //}
+        //GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Skin");
+        //if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
+        //{
+        //    SetTexture("Skin", 1);
+        //}
+        //i++;
+        //if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
+        //{
+        //    SetTexture("Hair", -1);
+        //}
+        //GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Hair");
+        //if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
+        //{
+        //    SetTexture("Hair", 1);
+        //}
+        //i++;
+        //if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
+        //{
+        //    SetTexture("Eyes", -1);
+        //}
+        //GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Eyes");
+        //if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
+        //{
+        //    SetTexture("Eyes", 1);
+        //}
+        //i++;
+        //if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
+        //{
+        //    SetTexture("Mouth", -1);
+        //}
+        //GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Mouth");
+        //if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
+        //{
+        //    SetTexture("Mouth", 1);
+        //}
+        //i++;
+        //if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
+        //{
+        //    SetTexture("Clothes", -1);
+        //}
+        //GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Clothes");
+        //if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
+        //{
+        //    SetTexture("Clothes", 1);
+        //}
+        //i++;
+        //if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
+        //{
+        //    SetTexture("Armour", -1);
+        //}
+        //GUI.Box(new Rect(0.75f * scrtW, scrtH + i * (0.5f * scrtH), 1f * scrtW, 0.5f * scrtH), "Armour");
+        //if (GUI.Button(new Rect(1.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
+        //{
+        //    SetTexture("Armour", 1);
+        //}
+        //i++;
 
-        #region Random Reset
-        if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), scrtW, 0.5f * scrtH), "Reset"))
-        {
-            SetTexture("Skin", skinIndex = 0);
-            SetTexture("Hair", hairIndex = 0);
-            SetTexture("Mouth", mouthIndex = 0);
-            SetTexture("Eyes", eyesIndex = 0);
-            SetTexture("Clothes", clothesIndex = 0);
-            SetTexture("Armour", armourIndex = 0);
-        }
-        if (GUI.Button(new Rect(1.25f * scrtW, scrtH + i * (0.5f * scrtH), scrtW, 0.5f * scrtH), "Random"))
-        {
-            SetTexture("Skin", Random.Range(0, skinMax - 1));
-            SetTexture("Hair", Random.Range(0, hairMax - 1));
-            SetTexture("Mouth", Random.Range(0, mouthMax - 1));
-            SetTexture("Eyes", Random.Range(0, eyesMax - 1));
-            SetTexture("Clothes", Random.Range(0, clothesMax - 1));
-            SetTexture("Armour", Random.Range(0, armourMax - 1));
-        }
-        i++;
-        #endregion
+        //#region Random Reset
+        //if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), scrtW, 0.5f * scrtH), "Reset"))
+        //{
+        //    SetTexture("Skin", skinIndex = 0);
+        //    SetTexture("Hair", hairIndex = 0);
+        //    SetTexture("Mouth", mouthIndex = 0);
+        //    SetTexture("Eyes", eyesIndex = 0);
+        //    SetTexture("Clothes", clothesIndex = 0);
+        //    SetTexture("Armour", armourIndex = 0);
+        //}
+        //if (GUI.Button(new Rect(1.25f * scrtW, scrtH + i * (0.5f * scrtH), scrtW, 0.5f * scrtH), "Random"))
+        //{
+        //    SetTexture("Skin", Random.Range(0, skinMax - 1));
+        //    SetTexture("Hair", Random.Range(0, hairMax - 1));
+        //    SetTexture("Mouth", Random.Range(0, mouthMax - 1));
+        //    SetTexture("Eyes", Random.Range(0, eyesMax - 1));
+        //    SetTexture("Clothes", Random.Range(0, clothesMax - 1));
+        //    SetTexture("Armour", Random.Range(0, armourMax - 1));
+        //}
+        //i++;
+        //#endregion
         characterName = GUI.TextField(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 2*scrtW, 0.5f*scrtH), characterName, 16);
-        i++;
-        if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 2 * scrtW, 0.5f * scrtH), "Save and Play"))
-        {
-            Save();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            customizer.SetActive(false);
-        }
-        i = 0;
+        //i++;
+        //if (GUI.Button(new Rect(0.25f * scrtW, scrtH + i * (0.5f * scrtH), 2 * scrtW, 0.5f * scrtH), "Save and Play"))
+        //{
+        //    Save();
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //    Cursor.visible = false;
+        //    customizer.SetActive(false);
+        //}
+        //i = 0;
         GUI.Box(new Rect(3.75f * scrtW, scrtH + i * (0.5f * scrtH), 2 * scrtW, 0.5f * scrtH), "Class");
         i++;
         GUI.Box(new Rect(3.75f * scrtW, scrtH + i * (0.5f * scrtH), 2 * scrtW, 0.5f * scrtH), selectedClass[selectedIndex]);
-        if (GUI.Button(new Rect(3.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
-        {
-            selectedIndex--;
-            if (selectedIndex < 0)
-            {
-                selectedIndex = selectedClass.Length - 1;
-            }
-            ChooseClass(selectedIndex);
-        }
-        if (GUI.Button(new Rect(5.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
-        {
-            selectedIndex++;
-            if (selectedIndex > selectedClass.Length - 1)
-            {
-                selectedIndex = 0;
-            }
-            ChooseClass(selectedIndex);
-        }
+        //if (GUI.Button(new Rect(3.25f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "<"))
+        //{
+        //    selectedIndex--;
+        //    if (selectedIndex < 0)
+        //    {
+        //        selectedIndex = selectedClass.Length - 1;
+        //    }
+        //    ChooseClass(selectedIndex);
+        //}
+        //if (GUI.Button(new Rect(5.75f * scrtW, scrtH + i * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), ">"))
+        //{
+        //    selectedIndex++;
+        //    if (selectedIndex > selectedClass.Length - 1)
+        //    {
+        //        selectedIndex = 0;
+        //    }
+        //    ChooseClass(selectedIndex);
+        //}
         GUI.Box(new Rect(3.75f * scrtW, 2f * scrtH, 2f * scrtW, 0.5f * scrtH), "Points: " + points);
+        //for (int x = 0; x < 6; x++)
+        //{
+        //    if (points > 0)
+        //    {
+        //        if (GUI.Button(new Rect(5.75f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "+"))
+        //        {
+        //            points--;
+        //            tempStats[x]++; 
+        //        }
+        //    }
+        //GUI.Box(new Rect(3.75f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 2f * scrtW, 0.5f * scrtH), statArray[x] + ": " + (tempStats[x] + stats[x]));
+        //    if (points < 10 && tempStats[x] > 0)
+        //    {
+        //        if (GUI.Button(new Rect(3.25f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "-"))
+        //        {
+        //            points++;
+        //            tempStats[x]--;
+        //        }
+        //    }
+        //}
+    }
+    #endregion
+
+    #region Canvas - Buttons
+    #region Textures
+    #region Set
+    #region Skin
+    public void IncreaseSkin()
+    {
+        SetTexture("Skin", 1);
+    }
+
+    public void DecreaseSkin()
+    {
+        SetTexture("Skin", -1);
+    }
+    #endregion
+
+    #region Hair
+    public void IncreaseHair()
+    {
+        SetTexture("Hair", 1);
+    }
+
+    public void DecreaseHair()
+    {
+        SetTexture("Hair", -1);
+    }
+    #endregion
+
+    #region Eyes
+    public void IncreaseEyes()
+    {
+        SetTexture("Eyes", 1);
+    }
+
+    public void DecreaseEyes()
+    {
+        SetTexture("Eyes", -1);
+    }
+    #endregion
+
+    #region Mouth
+    public void IncreaseMouth()
+    {
+        SetTexture("Mouth", 1);
+    }
+
+    public void DecreaseMouth()
+    {
+        SetTexture("Mouth", -1);
+    }
+    #endregion
+
+    #region Clothes
+    public void IncreaseClothes()
+    {
+        SetTexture("Clothes", 1);
+    }
+
+    public void DecreaseClothes()
+    {
+        SetTexture("Clothes", -1);
+    }
+    #endregion
+
+    #region Armour
+    public void IncreaseArmour()
+    {
+        SetTexture("Armour", 1);
+    }
+
+    public void DecreaseArmour()
+    {
+        SetTexture("Armour", -1);
+    }
+    #endregion
+    #endregion
+
+    #region Random | Reset
+    public void SetRandom()
+    {
+        SetTexture("Skin", Random.Range(0, skinMax - 1));
+        SetTexture("Hair", Random.Range(0, hairMax - 1));
+        SetTexture("Mouth", Random.Range(0, mouthMax - 1));
+        SetTexture("Eyes", Random.Range(0, eyesMax - 1));
+        SetTexture("Clothes", Random.Range(0, clothesMax - 1));
+        SetTexture("Armour", Random.Range(0, armourMax - 1));
+    }
+
+    public void Reset()
+    {
+        SetTexture("Skin", skinIndex = 0);
+        SetTexture("Hair", hairIndex = 0);
+        SetTexture("Mouth", mouthIndex = 0);
+        SetTexture("Eyes", eyesIndex = 0);
+        SetTexture("Clothes", clothesIndex = 0);
+        SetTexture("Armour", armourIndex = 0);
+    }
+    #endregion
+
+    #region Save
+    public void SaveSettings()
+    {
+        Save();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        customizer.SetActive(false);
+    }
+    #endregion
+    #endregion
+
+    #region Stats
+    #region Class
+    public void UpClass()
+    {
+        selectedIndex++;
+        if (selectedIndex > selectedClass.Length - 1)
+        {
+            selectedIndex = 0;
+        }
+        ChooseClass(selectedIndex);
+    }
+
+    public void DownClass()
+    {
+        selectedIndex--;
+        if (selectedIndex < 0)
+        {
+            selectedIndex = selectedClass.Length - 1;
+        }
+        ChooseClass(selectedIndex);
+    }
+    #endregion
+
+    #region Points
+    public void Points(bool decrease, bool increase)
+    {
         for (int x = 0; x < 6; x++)
         {
             if (points > 0)
             {
-                if (GUI.Button(new Rect(5.75f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "+"))
+                if (increase == true)
                 {
                     points--;
-                    tempStats[x]++; 
+                    tempStats[x]++;
+                    increase = false;
                 }
             }
-            GUI.Box(new Rect(3.75f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 2f * scrtW, 0.5f * scrtH), statArray[x] + ": " + (tempStats[x] + stats[x]));
+            //GUI.Box(new Rect(3.75f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 2f * scrtW, 0.5f * scrtH), statArray[x] + ": " + (tempStats[x] + stats[x]));
             if (points < 10 && tempStats[x] > 0)
             {
-                if (GUI.Button(new Rect(3.25f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 0.5f * scrtW, 0.5f * scrtH), "-"))
+                if (decrease == true)
                 {
                     points++;
                     tempStats[x]--;
+                    decrease = false;
                 }
             }
         }
     }
+    #endregion
+    #endregion
     #endregion
     void ChooseClass(int className)
     {
