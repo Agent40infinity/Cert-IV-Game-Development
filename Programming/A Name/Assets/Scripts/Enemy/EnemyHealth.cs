@@ -19,6 +19,6 @@ public class EnemyHealth : MonoBehaviour
     public void Update ()
     {
         healthSlider.value = Mathf.Clamp01(curHP / maxHP);
-        enemyHealth.transform.LookAt(Camera.main.transform);
+        //enemyHealth.transform.LookAt(Camera.main.transform);
 	}
 }
