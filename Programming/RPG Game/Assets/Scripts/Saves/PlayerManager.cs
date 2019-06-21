@@ -10,6 +10,8 @@ public class PlayerManager : MonoBehaviour
     public SliderHealth.SliderHealth SliderHealth;
     public CheckPoint CheckPoint;
     public float x, y, z;
+    public int[] stats = new int[6];
+    public GameObject customizer;
 
 
     public void SavePlayer()
@@ -18,6 +20,11 @@ public class PlayerManager : MonoBehaviour
         x = CheckPoint.curCheckpoint.x;
         y = CheckPoint.curCheckpoint.y;
         z = CheckPoint.curCheckpoint.z;
+        name = CustomisationSet.characterName;
+        for (int i = 0; i < stats.Length; i++)
+        {
+            stats[i] = customizer.GetComponent<CustomisationSet>().stats[i];
+        }
         Save.SavePlayerData(this);
     }
     public void LoadPlayer()
@@ -30,6 +37,9 @@ public class PlayerManager : MonoBehaviour
         y = data.y;
         z = data.z;
         this.transform.position = new Vector3(x, y, z);
-
+        for (int i = 0; i < stats.Length; i++)
+        {
+            stats[i] = data.stats[i];
+        }
     }
 }

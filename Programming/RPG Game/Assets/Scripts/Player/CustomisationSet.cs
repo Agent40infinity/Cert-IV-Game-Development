@@ -24,7 +24,7 @@ public class CustomisationSet : MonoBehaviour
     public int skinMax;
     public int eyesMax, mouthMax, hairMax, clothesMax, armourMax;
     [Header("Character Name")]
-    public string characterName = "Adventurer";
+    public static string characterName = "Adventurer";
     [Header("Stats")]
     public CharacterClass charClass;
     public CharacterRace charRace;
@@ -40,11 +40,16 @@ public class CustomisationSet : MonoBehaviour
     public GameObject classText, pointText, str, dex, cont, wis, inte, chari;
     public GameObject[] decreaseStats = new GameObject[6];
     public GameObject[] increaseStats = new GameObject[6];
+    public GameObject inputName;
+    public GameObject dialogue;
+    public GameObject player, warrior;
     #endregion
 
     #region General
     public void Start()
     {
+        //player = GameObject.FindWithTag("Player");
+        warrior = GameObject.Find("Warrior");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -94,8 +99,10 @@ public class CustomisationSet : MonoBehaviour
 
     public void Update()
     {
+        Debug.Log("Character Name:" + characterName);
         classText.GetComponent<Text>().text = selectedClass[selectedIndex];
         pointText.GetComponent<Text>().text = "Points: " + points;
+        characterName = inputName.GetComponent<InputField>().text;
         str.GetComponent<Text>().text = "Strength: " + (stats[0] + tempStats[0]);
         dex.GetComponent<Text>().text = "Dexterity: " + (stats[1] + tempStats[1]);
         cont.GetComponent<Text>().text = "Constitution: " + (stats[2] + tempStats[2]);
@@ -228,6 +235,8 @@ public class CustomisationSet : MonoBehaviour
         {
             stats[i] += tempStats[i];
         }
+        //GameObject player = GameObject.FindWithTag("Player");
+        //player.GetComponent<PlayerManager>().SavePlayer();
     }
     #endregion
 
@@ -316,7 +325,7 @@ public class CustomisationSet : MonoBehaviour
     //        SetTexture("Mouth", Random.Range(0, mouthMax - 1));
     //        SetTexture("Eyes", Random.Range(0, eyesMax - 1));
     //        SetTexture("Clothes", Random.Range(0, clothesMax - 1));
-    //        SetTexture("Armour", Random.Range(0, armourMax - 1));
+    //        SetTexture("Armour", Random.Range(0, armourMax - 1)); 
     //    }
     //    i++;
     //    #endregion
@@ -480,6 +489,9 @@ public class CustomisationSet : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         customizer.SetActive(false);
+        dialogue.SetActive(true);
+        warrior.SetActive(false);
+        player.SetActive(true);
     }
     #endregion
     #endregion
