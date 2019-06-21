@@ -38,6 +38,8 @@ public class CustomisationSet : MonoBehaviour
 
     public GameObject customizer;
     public GameObject classText, pointText, str, dex, cont, wis, inte, chari;
+    public GameObject[] decreaseStats = new GameObject[6];
+    public GameObject[] increaseStats = new GameObject[6];
     #endregion
 
     #region General
@@ -100,6 +102,35 @@ public class CustomisationSet : MonoBehaviour
         wis.GetComponent<Text>().text = "Wisdom: " + (stats[3] + tempStats[3]);
         inte.GetComponent<Text>().text = "Intelligence: " + (stats[4] + tempStats[4]);
         chari.GetComponent<Text>().text = "Charisma: " + (stats[5] + tempStats[5]);
+
+        //if (points <= 0)
+        //{
+        //    for (int i = 0; i < decreaseStats.Length; i++)
+        //    {
+        //        decreaseStats[i].SetActive(false);
+        //    }
+        //}
+        //else
+        //{
+        //    for (int i = 0; i < decreaseStats.Length; i++)
+        //    {
+        //        decreaseStats[i].SetActive(true);
+        //    }
+        //}
+        //if (points >= 10)
+        //{
+        //    for (int i = 0; i < increaseStats.Length; i++)
+        //    {
+        //        increaseStats[i].SetActive(false);
+        //    }
+        //}
+        //else
+        //{
+        //    for (int i = 0; i < increaseStats.Length; i++)
+        //    {
+        //        increaseStats[i].SetActive(true);
+        //    }
+        //}
     }
     #endregion
 
@@ -493,31 +524,6 @@ public class CustomisationSet : MonoBehaviour
             tempStats[x]--;
         }
     }
-    //public void Points(bool decrease, bool increase, int x)
-    //{
-    //    for (x = 0; x < 6; x++)
-    //    {
-    //        if (points > 0)
-    //        {
-    //            if (increase == true)
-    //            {
-    //                points--;
-    //                tempStats[x]++;
-    //                increase = false;
-    //            }
-    //        }
-    //        //GUI.Box(new Rect(3.75f * scrtW, 2.5f * scrtH + x * (0.5f * scrtH), 2f * scrtW, 0.5f * scrtH), statArray[x] + ": " + (tempStats[x] + stats[x]));
-    //        if (points < 10 && tempStats[x] > 0)
-    //        {
-    //            if (decrease == true)
-    //            {
-    //                points++;
-    //                tempStats[x]--;
-    //                decrease = false;
-    //            }
-    //        }
-    //    }
-    //}
     #endregion
     #endregion
     #endregion
